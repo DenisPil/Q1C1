@@ -1,0 +1,9 @@
+{
+    "python.analysis.extraPaths": [
+        "./q1c1",
+        "./q1c1/property"
+    ],
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
+}
