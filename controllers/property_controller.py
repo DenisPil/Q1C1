@@ -27,12 +27,13 @@ class PropertyController:
         """
         rez = list()
         initial_count = 0
-        dir = "C:/OpenClassrooms/exo_q1c1/data"
+        path_os = os.getcwd()
+        dir = path_os + "/data/"
         for path in os.listdir(dir):
             if os.path.isfile(os.path.join(dir, path)):
                 initial_count += 1
         for i in range(0, initial_count - 1):
-            f = open(r'C:/OpenClassrooms/exo_q1c1/data/dataset_' +
+            f = open(path_os + '/data/dataset_' +
                      str(i) + '.csv', newline='')
             myReader = csv.reader(f,)
             for row in myReader:
@@ -61,12 +62,13 @@ class PropertyController:
         self.view.show("Tape le " + choice)
         info = self.input.get_input_str()
         initial_count = 0
-        dir = "C:/OpenClassrooms/exo_q1c1/data"
+        path_os = os.getcwd()
+        dir = path_os + "/data/"
         for path in os.listdir(dir):
             if os.path.isfile(os.path.join(dir, path)):
                 initial_count += 1
         for i in range(0, initial_count - 1):
-            f = open(r'C:/OpenClassrooms/exo_q1c1/data/dataset_' +
+            f = open(path_os + '/data/dataset_' +
                      str(i) + '.csv', newline='')
             myReader = csv.DictReader(f,)
             for row in myReader:
@@ -84,21 +86,22 @@ class PropertyController:
         """
             Ajoute les propriétés a la bdd
         """
-        sys.path.insert(0, 'C:/OpenClassrooms/exo_q1c1/q1c1')
-        sys.path.append("C:/OpenClassrooms/exo_q1c1/q1c1/property")
+        path_os = os.getcwd()
+        print(path_os)
+        sys.path.insert(0, path_os + '/q1c1/')
+        sys.path.append(path_os + "/property")
         import property
-
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", 'q1c1.settings')
         import django
         django.setup()
         from property.models import Property
         initial_count = 0
-        dir = "C:/OpenClassrooms/exo_q1c1/data"
+        dir = path_os + "/data/"
         for path in os.listdir(dir):
             if os.path.isfile(os.path.join(dir, path)):
                 initial_count += 1
         for i in range(0, initial_count - 1):
-            f = open(r'C:/OpenClassrooms/exo_q1c1/data/dataset_' +
+            f = open(path_os + '/data/dataset_' +
                      str(i) + '.csv', newline='')
             myReader = csv.DictReader(f,)
             print('dataset_' +
